@@ -71,4 +71,73 @@ public class IntegerList {
             list[minIndex] = temp;
         }
     }
+    // -------------------------------------------------------
+    // Replacing the first oldVal with the newVal
+    // //-------------------------------------------------------
+    public void replaceFirst(int oldVal, int newVal)
+    {
+        int valPosition = search(oldVal);
+        if (valPosition != -1) {
+            list[valPosition] = newVal;
+        }
+    }
+
+    public void replaceAll(int oldVal, int newVal)
+    {
+        int valPosition = search(oldVal);
+        while (valPosition != -1) 
+        {
+            list[valPosition] = newVal;
+            valPosition = search(oldVal);
+        }
+
+    }
+
+    public void sortDecreasing()
+    {
+        int maxIndex;
+        for (int i = 0; i < list.length - 1; i++) {
+            // find biggest element in list starting at location i
+            maxIndex = i;
+            for (int j = i + 1; j < list.length; j++)
+                if (list[j] > list[maxIndex])
+                    maxIndex = j;
+            // swap list[i] with smallest element
+            int temp = list[i];
+            list[i] = list[maxIndex];
+            list[maxIndex] = temp;
+        }  
+    }
+
+    public int binarySearchD(int target)
+    {
+
+    }
+
+    private int binarySearchDRec(int target, int left, int right)
+    {
+        // target isn't in the list
+        if (left > right) 
+        {
+            return -1;
+        }
+
+        int mid = (left + right) / 2;
+        if (target == list[mid]) 
+        {
+            return mid;
+        } 
+        // if the target is bigger than the middle position,
+        // then it should search in left side
+        else if (target > list[mid])
+        {
+            return binarySearchDRec(target, left, mid - 1);
+        }
+        // if the target is smaller than the middle position,
+        // then it should search in right side
+        else
+        {
+            return binarySearchDRec(target, mid + 1, right);
+        }
+    }  
 }
