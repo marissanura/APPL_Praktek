@@ -68,12 +68,12 @@ public class IntegerListTest
                 if (loc != -1)
                 {
                     System.out.println("Found at location " + loc);
-                    System.out.printf("Time: %l", (time2-time1));
+                    System.out.printf("Time: %d", (time2-time1));
                 }
                 else
                 {
                     System.out.println("Not in list");
-                    System.out.printf("Time: %l", (time2-time1));
+                    System.out.printf("Time: %d", (time2-time1));
                 }
                 break;
             case 6:
@@ -85,12 +85,12 @@ public class IntegerListTest
                 if (loc != -1)
                 {
                     System.out.println("Found at location " + loc);
-                    System.out.printf("Time: %l", (time2-time1)); 
+                    System.out.printf("Time: %d", (time2-time1)); 
                 }
                 else
                 {
                     System.out.println("Not in list");
-                    System.out.printf("Time: %l", (time2-time1));
+                    System.out.printf("Time: %d", (time2-time1));
                 }
                 break;
             case 7:
@@ -98,14 +98,14 @@ public class IntegerListTest
                 list.sortIncreasing();
                 time2 = currentTime();
                 System.out.println("List has been sorted.");
-                System.out.printf("Time: %l", (time2-time1));
+                System.out.printf("Time: %d", (time2-time1));
                 break;
             case 8:
                 time1 = currentTime();
                 list.sortDecreasing();
                 time2 = currentTime(); 
                 System.out.println("List has been sorted."); 
-                System.out.printf("Time: %l", (time2-time1));
+                System.out.printf("Time: %d", (time2-time1));
                 break;
             default:
                 System.out.println("Sorry, invalid choice");
