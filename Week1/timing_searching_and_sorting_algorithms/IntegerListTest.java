@@ -6,6 +6,7 @@
 // **************************************************************** 
 
 import java.util.Scanner;
+import java.util.*;
 
 public class IntegerListTest 
 {
@@ -36,6 +37,7 @@ public class IntegerListTest
         int loc;
         int val;
         long time1, time2;
+
         switch(choice)
         {
             case 0:
@@ -60,27 +62,50 @@ public class IntegerListTest
             case 5:
                 System.out.print("Enter the value to look for: "); 
                 val = scan.nextInt();
+                time1 = currentTime();
                 loc = list.linearSearch(val);
+                time2 = currentTime();
                 if (loc != -1)
-                    System.out.println("Found at location " + loc); 
+                {
+                    System.out.println("Found at location " + loc);
+                    System.out.printf("Time: %l", (time2-time1));
+                }
                 else
+                {
                     System.out.println("Not in list");
+                    System.out.printf("Time: %l", (time2-time1));
+                }
                 break;
             case 6:
                 System.out.print("Enter the value to look for: "); 
                 val = scan.nextInt();
+                time1 = currentTime();
                 loc = list.binarySearch(val);
+                time2 = currentTime();
                 if (loc != -1)
-                    System.out.println("Found at location " + loc); 
+                {
+                    System.out.println("Found at location " + loc);
+                    System.out.printf("Time: %l", (time2-time1)); 
+                }
                 else
+                {
                     System.out.println("Not in list");
+                    System.out.printf("Time: %l", (time2-time1));
+                }
                 break;
             case 7:
-                list.sortIncreasing(); 
-                System.out.println("List has been sorted."); 
+                time1 = currentTime();
+                list.sortIncreasing();
+                time2 = currentTime();
+                System.out.println("List has been sorted.");
+                System.out.printf("Time: %l", (time2-time1));
                 break;
             case 8:
-                list.sortDecreasing(); System.out.println("List has been sorted."); 
+                time1 = currentTime();
+                list.sortDecreasing();
+                time2 = currentTime(); 
+                System.out.println("List has been sorted."); 
+                System.out.printf("Time: %l", (time2-time1));
                 break;
             default:
                 System.out.println("Sorry, invalid choice");
@@ -109,5 +134,9 @@ public class IntegerListTest
         System.out.print("\nEnter your choice: ");
     }
 
+    private static long currentTime()
+    {
+        return System.currentTimeMillis();
+    }
     
 }

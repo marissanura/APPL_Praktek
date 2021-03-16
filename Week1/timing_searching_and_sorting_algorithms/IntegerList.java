@@ -100,7 +100,7 @@ public class IntegerList
             list[maxIndex] = temp;
         }  
     }
-    public int binarySearchD(int target)
+    public int binarySearch(int target)
     {
         return binarySearchDRec(target,0,list.length - 1);
     }
