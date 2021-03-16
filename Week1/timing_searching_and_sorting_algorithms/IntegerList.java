@@ -83,29 +83,29 @@ public class IntegerList
     }
 
     //------------------------------------------------------------ 
-    // sortDecreasing -- uses selection sort 
+    // sortDecreasing -- uses insertion sort 
     //------------------------------------------------------------ 
     public void sortDecreasing()
     {
-        int maxIndex;
-        for (int i = 0; i < list.length - 1; i++) {
-            // find biggest element in list starting at location i
-            maxIndex = i;
-            for (int j = i + 1; j < list.length; j++)
-                if (list[j] > list[maxIndex])
-                    maxIndex = j;
-            // swap list[i] with smallest element
-            int temp = list[i];
-            list[i] = list[maxIndex];
-            list[maxIndex] = temp;
+        int n = list.length;
+        for (int i = 1; i < n; i++) 
+        {
+            int key = list[i];
+            int j = i -1;
+            while (j >= 0 && list[j] < key)
+            {
+                list[j+1] = list[j];
+                j = j - 1;
+            }
+            list[j+1] = key;
         }  
     }
     public int binarySearch(int target)
     {
-        return binarySearchDRec(target,0,list.length - 1);
+        return binarySearchRec(target,0,list.length - 1);
     }
 
-    private int binarySearchDRec(int target, int left, int right)
+    private int binarySearchRec(int target, int left, int right)
     {
         // target isn't in the list
         if (left > right) 
@@ -118,17 +118,17 @@ public class IntegerList
         {
             return mid;
         } 
-        // if the target is bigger than the middle position,
-        // then it should search in left side
-        else if (target > list[mid])
-        {
-            return binarySearchDRec(target, left, mid - 1);
-        }
         // if the target is smaller than the middle position,
+        // then it should search in left side
+        else if (target < list[mid])
+        {
+            return binarySearchRec(target, left, mid - 1);
+        }
+        // if the target is bigger than the middle position,
         // then it should search in right side
         else
         {
-            return binarySearchDRec(target, mid + 1, right);
+            return binarySearchRec(target, mid + 1, right);
         }
     }  
 }
