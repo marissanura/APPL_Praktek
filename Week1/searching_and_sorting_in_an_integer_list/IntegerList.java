@@ -10,6 +10,8 @@ import java.util.Scanner;
 
 public class IntegerList {
     int[] list; // values in the list
+    int lSize;
+
     // -------------------------------------------------------
     // create a list of
     // the given size
@@ -18,6 +20,7 @@ public class IntegerList {
 
     public IntegerList(int size) {
         list = new int[size];
+        lSize = size;
     }
 
     // -------------------------------------------------------
@@ -111,7 +114,7 @@ public class IntegerList {
 
     public int binarySearchD(int target)
     {
-
+        return binarySearchDRec(target,0,lSize-1);
     }
 
     private int binarySearchDRec(int target, int left, int right)
