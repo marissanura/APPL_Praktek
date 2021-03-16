@@ -18,6 +18,7 @@ public class SpeedControlPanel extends JPanel
     private Circle bouncingBall; // the object that moves 
     private Timer timer;
     private int moveX, moveY; // increment to move each time
+    private JSlider gSlider;
 
     // --------------------------------------------- 
     // Sets up the panel, including the timer
@@ -33,6 +34,9 @@ public class SpeedControlPanel extends JPanel
         setPreferredSize (new Dimension (WIDTH, HEIGHT)); 
         setBackground(Color.black);
         timer.start();
+
+        gSlider = new JSlider(JSlider.HORIZONTAL,0, 200, 30);
+
     }
 
     // --------------------
@@ -40,7 +44,7 @@ public class SpeedControlPanel extends JPanel
     // --------------------
     public void paintComponent (Graphics page) 
     {
-        super.paintComponent (page);
+        super.paintComponent(page);
         bouncingBall.draw(page);
     }
 
@@ -61,9 +65,9 @@ public class SpeedControlPanel extends JPanel
             int x = bouncingBall.getX();
             int y = bouncingBall.getY();
             if (x < 0 || x >= WIDTH - BALL_SIZE)
-            moveX = moveX * -1;
+                moveX = moveX * -1;
             if (y <= 0 || y >= HEIGHT - BALL_SIZE)
-            moveY = moveY * -1;
+                moveY = moveY * -1;
             repaint(); 
         }
     }
@@ -78,7 +82,7 @@ public class SpeedControlPanel extends JPanel
         // ------------------------------------------------- 
         public void stateChanged (ChangeEvent event)
         {
-            
+
         } 
     }
 

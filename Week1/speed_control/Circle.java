@@ -22,7 +22,8 @@ public class Circle
     public Circle()
     {
         radius = Math.abs(generator.nextInt())%50 + 25;
-        color = new Color(Math.abs(generator.nextInt())% 16777216); x = Math.abs(generator.nextInt())%600;
+        color = new Color(Math.abs(generator.nextInt())% 16777216); 
+        x = Math.abs(generator.nextInt())%600;
         y = Math.abs(generator.nextInt())%400;
     }
 
@@ -33,7 +34,8 @@ public class Circle
     public Circle(int size)
     {
         radius = Math.abs(size/2);
-        color = new Color(Math.abs(generator.nextInt())% 16777216); x = Math.abs(generator.nextInt())%600;
+        color = new Color(Math.abs(generator.nextInt())% 16777216); 
+        x = Math.abs(generator.nextInt())%600;
         y = Math.abs(generator.nextInt())%400;
     }
 
