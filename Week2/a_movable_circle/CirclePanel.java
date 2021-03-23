@@ -85,9 +85,10 @@ public class CirclePanel extends JPanel {
         //---------------------------------------------------------------   
         public void actionPerformed(ActionEvent e)  
         {  
+            changeButtonDisability();
+
             x += dx;  
             y += dy; 
-            changeButtonDisability();
             repaint();  
         }
         
@@ -95,8 +96,7 @@ public class CirclePanel extends JPanel {
             up.setEnabled(y > 0);
             down.setEnabled(y < maxY);
             left.setEnabled(x > 0);
-            right.setEnabled(x < maxY);
+            right.setEnabled(x < maxX);
         }
     }
 }
-
